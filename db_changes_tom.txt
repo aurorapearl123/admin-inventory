@@ -1,0 +1,199 @@
+//March 4
+ALTER TABLE `customer_ledger` ADD `custID` INT NOT NULL AFTER `id`;
+ALTER TABLE `supplier_ledger` ADD `suppID` INT NOT NULL AFTER `id`;
+ALTER TABLE `customer_ledger` CHANGE `status` `status` TINYINT(4) NOT NULL DEFAULT '1';
+ALTER TABLE `supplier_ledger` CHANGE `status` `status` TINYINT(4) NOT NULL DEFAULT '1';
+
+//Feb 20
+ALTER TABLE `poheaders` ADD `apStatus` TINYINT NOT NULL DEFAULT '0' AFTER `datePaid`, ADD `paymentStatus` TINYINT NOT NULL DEFAULT '0' AFTER `apStatus`;
+ALTER TABLE `payment_details` ADD `status` INT NOT NULL AFTER `deletedBy`;
+ALTER TABLE `apdetails` DROP `productID`, DROP `qty`, DROP `delQty`, DROP `price`;
+ALTER TABLE `ardetails` DROP `productID`, DROP `qty`, DROP `delQty`, DROP `price`;
+ALTER TABLE `collection_details` ADD `status` INT NOT NULL AFTER `deletedBy`;
+ALTER TABLE `soheaders` ADD `collectionStatus` TINYINT NOT NULL DEFAULT '0' AFTER `remarks`;
+
+TRUNCATE `apdetails`;
+TRUNCATE `apheaders`;
+TRUNCATE `ardetails`;
+TRUNCATE `arheaders`;
+TRUNCATE `collection_details`;
+TRUNCATE `collection_headers`;
+TRUNCATE `drdetails`;
+TRUNCATE `drheaders`;
+TRUNCATE `payment_details`;
+TRUNCATE `payment_headers`;
+TRUNCATE `podetails`;
+TRUNCATE `poheaders`;
+TRUNCATE `rrdetails`;
+TRUNCATE `rrheaders`;
+TRUNCATE `sodetails`;
+TRUNCATE `soheaders`;
+TRUNCATE `stockcards`;
+TRUNCATE `message_board`;
+
+
+//Feb 19
+ALTER TABLE `arheaders` CHANGE `paymentTerms` `paymentTerm` TINYINT(4) NOT NULL;
+ALTER TABLE `arheaders` ADD `datePaid` DATETIME NOT NULL AFTER `amountPaid`;
+ALTER TABLE `ardetails` ADD `productID` INT NOT NULL AFTER `drID`, ADD `qty` FLOAT NOT NULL AFTER `productID`, ADD `delQty` FLOAT NOT NULL AFTER `qty`, ADD `price` DECIMAL(10,2) NOT NULL AFTER `delQty`;
+
+
+
+//Feb 18
+ALTER TABLE `apheaders` CHANGE `paymentTerms` `paymentTerm` TINYINT(4) NOT NULL;
+ALTER TABLE `apheaders` ADD `datePaid` DATETIME NOT NULL AFTER `paymentTerm`;
+ALTER TABLE `apheaders` ADD `dateCreated` DATETIME NOT NULL AFTER `createdBy`;
+ALTER TABLE `apdetails` ADD `price` DECIMAL(10,2) NOT NULL AFTER `amount`;
+ALTER TABLE `apdetails` ADD `productID` INT NOT NULL AFTER `rrID`;
+ALTER TABLE `apdetails` ADD `qty` FLOAT NOT NULL AFTER `productID`;
+
+ALTER TABLE `apdetails` CHANGE `qty` `qty` FLOAT NOT NULL COMMENT 'Originally wala ni';
+ALTER TABLE `apdetails` ADD `delQty` FLOAT NOT NULL AFTER `qty`;
+ALTER TABLE `apdetails` CHANGE `delQty` `delQty` FLOAT NOT NULL COMMENT 'Originally wala ni';
+
+
+//Feb 15
+ALTER TABLE `sodetails` CHANGE `amount` `amount` DECIMAL(10,2) NOT NULL;
+ALTER TABLE `poheaders` ADD `discountType` TINYINT NOT NULL DEFAULT '0' AFTER `discount`;
+ALTER TABLE `poheaders` CHANGE `discountType` `discountType` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '0:amount; 1:percentage';
+ALTER TABLE `poheaders` CHANGE `discount` `discount` DECIMAL(10,2) NOT NULL;
+
+DROP TABLE IF EXISTS `message_board`;
+CREATE TABLE IF NOT EXISTS `message_board` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:message 2:notification 3:warning',
+  `ancillaryID` int(11) NOT NULL DEFAULT '0',
+  `paramID` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `url` varchar(300) NOT NULL,
+  `isRead` tinyint(4) NOT NULL DEFAULT '0',
+  `expiration` datetime NOT NULL,
+  `dateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:Active 0:Expired',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `rrheaders` ADD `totalAmount` DECIMAL(10,3) NOT NULL AFTER `timeDelivered`;
+
+ALTER TABLE `message_board` DROP `ancillaryID`;
+
+ALTER TABLE `drheaders` ADD `totalAmount` DECIMAL(10,3) NOT NULL AFTER `departure`;
+
+
+//Feb 14
+ALTER TABLE `rrheaders` ADD `driverName` VARCHAR(250) NOT NULL AFTER `plateNo`;
+ALTER TABLE `rrdetails` ADD `status` TINYINT NOT NULL AFTER `deletedBy`;
+
+DROP TABLE `drdetails`
+SELECT * FROM `rrdetails`
+CREATE TABLE `kitrol`.`drdetails` ( `id` int(11) NOT NULL, `rrID` int(11) NOT NULL, `productID` int(11) NOT NULL, `qty` float NOT NULL, `price` decimal(10,3) NOT NULL, `amount` decimal(10,3) NOT NULL, `dateInserted` datetime NOT NULL, `dateLastEdit` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP, `dateDeleted` datetime NOT NULL, `deletedBy` varchar(36) NOT NULL, `status` tinyint(4) NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=latin1; ALTER TABLE `kitrol`.`drdetails` ADD PRIMARY KEY (`id`); ALTER TABLE `kitrol`.`drdetails` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+SELECT * FROM `drdetails`;
+
+
+ALTER TABLE `drdetails` CHANGE `rrID` `drID` INT(11) NOT NULL;
+
+
+
+//Feb 13
+ALTER TABLE `soheaders` CHANGE `paymentTerms` `paymentTerm` TINYINT(4) NOT NULL;
+ALTER TABLE `soheaders` ADD `remarks` VARCHAR(250) NOT NULL AFTER `datePaid`;
+ALTER TABLE `soheaders` ADD `deliveryTerm` VARCHAR(200) NOT NULL AFTER `datePaid`;
+ALTER TABLE `soheaders` ADD `deliveryDate` DATETIME NOT NULL AFTER `deliveryTerm`;
+ALTER TABLE `rrdetails` ADD `price` DECIMAL(10,3) NOT NULL AFTER `qty`, ADD `amount` DECIMAL(10,3) NOT NULL AFTER `price`;
+
+
+//Feb 11
+DROP TABLE IF EXISTS `login_logs`;
+CREATE TABLE IF NOT EXISTS `login_logs` (
+  `lid` int(11) NOT NULL AUTO_INCREMENT,
+  `host` varchar(20) NOT NULL,
+  `hostname` varchar(30) NOT NULL,
+  `userID` varchar(36) NOT NULL,
+  `date` datetime NOT NULL,
+  `operation` varchar(15) NOT NULL,
+  `logs` varchar(10) NOT NULL,
+  PRIMARY KEY (`lid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `podetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `podetails` CHANGE `delStatus` `delStatus` TINYINT(4) NULL DEFAULT '1';
+
+
+
+DROP TABLE IF EXISTS `field_logs`;
+CREATE TABLE IF NOT EXISTS `field_logs` (
+  `lid` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(36) NOT NULL,
+  `host` varchar(20) NOT NULL,
+  `hostname` varchar(20) NOT NULL,
+  `date` datetime NOT NULL,
+  `module` varchar(50) NOT NULL,
+  `table` varchar(50) NOT NULL,
+  `pkey` varchar(20) NOT NULL,
+  `pid` varchar(36) NOT NULL,
+  `operation` varchar(20) NOT NULL,
+  `field` varchar(20) NOT NULL,
+  `oldvalue` text NOT NULL,
+  `newvalue` text NOT NULL,
+  PRIMARY KEY (`lid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+ALTER TABLE `poheaders` CHANGE `poID` `poID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `podetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `soheaders` CHANGE `soID` `soID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `sodetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rrheaders` CHANGE `rrID` `rrID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rrdetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `drheaders` CHANGE `drID` `drID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `drdetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `apheaders` CHANGE `apID` `apID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `apdetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `arheaders` CHANGE `arID` `arID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ardetails` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `payment_headers` CHANGE `paymentID` `paymentID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `payment_details` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `collection_headers` CHANGE `collectionID` `collectionID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `collection_details` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+
+//Feb 10
+ALTER TABLE `poheaders` ADD `deliveryDate` DATETIME NOT NULL AFTER `datePaid`, ADD `deliveryTerm` TINYINT NOT NULL AFTER `deliveryDate`;
+
+ALTER TABLE `poheaders` CHANGE `paymentTerms` `paymentTerm` TINYINT(4) NOT NULL;
+
+ALTER TABLE `poheaders` CHANGE `deliveryTerm` `deliveryTerm` VARCHAR(200) NOT NULL;
+
+
+
+//Feb 9
+
+ALTER TABLE `poheaders` CHANGE `poID` `poID` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+
+
+
+
+
+
+
+
+
+
+//sample podata
+
+INSERT INTO `poheaders` (`poID`, `poNo`, `poDate`, `suppID`, `grossAmount`, `discount`, `netAmount`, `paymentTerms`, `dueDate`, `amountPaid`, `balance`, `datePaid`, `createdBy`, `dateCreated`, `confirmedBy`, `dateConfirmed`, `cancelledBy`, `dateCancelled`, `dateInserted`, `dateLastEdit`, `dateDeleted`, `deletedBy`, `remarks`, `status`) VALUES ('', 'PO 123', '2019-02-09', '1', '50000', '5000', '45000', '1', '2019-04-26 00:00:00', '0', '50000', '', '1', '2019-02-09 00:00:00', '', '', '', '', '', '0000-00-00 00:00:00.000000', '', '', '', '1');
+
+
+INSERT INTO `podetails` (`id`, `poID`, `productID`, `qty`, `price`, `amount`, `delQty`, `delStatus`, `dateInserted`, `dateLastEdit`, `dateDeleted`, `deletedBy`, `status`) VALUES ('', '0', '1', '50000', '45', '225000', '0', NULL, '2019-02-09 00:00:00', '0000-00-00 00:00:00.000000', '', '', '1');
+
+//============================================================================
+

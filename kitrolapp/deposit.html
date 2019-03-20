@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>Kitrol Inventory</title>
+  <link rel="stylesheet" href="assets/css/framework7.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/icon/icons.css">
+  <link rel="stylesheet" href="assets/font/fonts.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+
+    <!-- Left Navigation -->
+    <div class="panel panel-left panel-reveal">
+      <div class="block menu-header">
+        <div class="list media-list">
+          <div class="item-content">
+            <!-- <div class="item-media"><i class="user f7-icons size-50">person</i></div> -->
+            <div class="item-media"><img class="user" src="assets/img/profile.png"></div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">Kitrol Holdings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block menu-content">
+        <div class="list margin-top">
+          <ul>
+            <li>
+              <a href="/dashboard/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">dashboard</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Dashboard</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/sales-report/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">insert_chart</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Sales Report</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/inventory/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">pie_chart</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Inventory</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/deposit/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">account_balance</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Deposit</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/settings/" class="item-link item-content panel-close active-state">
+                <div class="item-media"><i class="icon material-icons">settings</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Settings</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="block menu-footer">
+        <div class="list">
+          <a href="/" class="item-link item-content panel-close">
+            <div class="item-media"><i class="icon material-icons">power_settings_new</i></div>
+            <div class="item-inner">
+              <div class="item-title">Logout</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main container -->
+    <div class="view view-main">
+
+      <!-- Page -->
+      <div class="page" data-name="deposit">
+
+        <!-- fixed navbar -->
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a class="link panel-open padding" href="#" data-panel="left">
+                <i class="material-icons">sort</i>
+              </a>
+            </div>
+             <div class="title">Deposit</div>
+            <div class="right"></div>
+          </div>
+        </div>
+
+        <!-- Page content -->
+        <div class="page-content ptr-content">
+
+          <!-- Pull Refresh -->
+          <div class="ptr-preloader">
+            <div class="preloader"></div>
+            <div class="ptr-arrow"></div>
+          </div>
+
+          <div class="list">
+            <div class="block">
+              <div class="block-title">Today</div>
+              <div class="block block-strong inset no-margin no-padding">
+                <div class="list full-width no-margin w-icon">
+                  <ul id="testing-list">
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon la la-bank"></i></div>
+                        <div class="item-inner item-cell">
+                          <div class="item-row">
+                            <div class="item-cell">
+                              <div class="item-title"></div>
+                            </div>
+                          </div>
+                          <div class="item-row">
+                            <div class="item-cell no-margin-left">
+                              <div class="item-after no-padding-left"></div>
+                            </div>
+                          </div>
+                          <div class="item-footer"></div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="block">
+              <div class="block-title" id="id-month"></div>
+              <div class="block block-strong inset no-margin no-padding">
+                <div class="list full-width no-margin w-icon">
+                  <ul id="testing-jan">
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="block">
+              <div class="block-title" id="id-february"></div>
+              <div class="block block-strong inset no-margin no-padding">
+                <div class="list full-width no-margin w-icon">
+                  <ul id="ul-february">
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/js/framework7.min.js"></script>
+  <script src="assets/js/routes.js"></script>
+
+  <!-- Display when it needed -->
+  <script src="assets/js/Chart.bundle.min.js"></script>
+  <script src="assets/js/progressbar.min.js"></script>
+  <!-- End -->
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

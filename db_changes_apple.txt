@@ -1,0 +1,37 @@
+1:12 PM 3/4/2019
+
+ALTER TABLE `owners` ADD `streetNo` VARCHAR(100) NOT NULL AFTER `middleName`, ADD `provinceID` INT(11) NOT NULL AFTER `streetNo`, ADD `cityID` INT(11) NOT NULL AFTER `provinceID`, ADD `barangayID` INT(11) NOT NULL AFTER `cityID`;
+
+2:46 PM 2/26/2019
+ALTER TABLE `owners` ADD `pin` VARCHAR(4) NOT NULL AFTER `userPswd`;
+
+ALTER TABLE `bank_accounts` ADD `ownerID` INT(11) NOT NULL AFTER `bankID`;
+
+
+
+5:13 PM 2/15/2019
+ALTER TABLE `bank_deposits` CHANGE `amount` `amount` DECIMAL(15,3) NOT NULL;
+
+
+3:17 PM 2/14/2019
+
+ALTER TABLE `products` CHANGE `umsr` `umsr` VARCHAR(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+ALTER TABLE `customers` CHANGE `creditLimit` `creditLimit` DECIMAL(15,3) NOT NULL;
+
+10:35 AM 2/11/2019
+
+ALTER TABLE `bank_accounts` CHANGE `bankAccountID` `bankAccountID` INT(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `banks` CHANGE `bankID` `bankID` INT(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `owners` CHANGE `ownerID` `ownerID` INT(11) NOT NULL AUTO_INCREMENT;
+
+RENAME TABLE loyalty_rank TO loyalty_ranks;
+
+UPDATE `kitrol`.`config` SET `value` = 'Kitrol Performance Fuel' WHERE `config`.`configID` = 8;
+
+
+5:04 PM 2/7/2019
+
+ALTER TABLE `customers` CHANGE `bday` `bday` DATE NOT NULL;

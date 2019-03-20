@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>Kitrol Inventory</title>
+  <link rel="stylesheet" href="assets/css/framework7.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/icon/icons.css">
+  <link rel="stylesheet" href="assets/font/fonts.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+
+    <!-- Left Navigation -->
+    <div class="panel panel-left panel-reveal">
+      <div class="block menu-header">
+        <div class="list media-list">
+          <div class="item-content">
+            <!-- <div class="item-media"><i class="user f7-icons size-50">person</i></div> -->
+            <div class="item-media"><img class="user" src="assets/img/profile.png"></div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">Kitrol Holdings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block menu-content">
+        <div class="list margin-top">
+          <ul>
+            <li>
+              <a href="/dashboard/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">dashboard</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Dashboard</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/sales-report/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">insert_chart</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Sales Report</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/inventory/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">pie_chart</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Inventory</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/deposit/" class="item-link item-content panel-close">
+                <div class="item-media"><i class="icon material-icons">account_balance</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Deposit</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/settings/" class="item-link item-content panel-close active-state">
+                <div class="item-media"><i class="icon material-icons">settings</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Settings</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="block menu-footer">
+        <div class="list">
+          <a href="/" class="item-link item-content panel-close">
+            <div class="item-media"><i class="icon material-icons">power_settings_new</i></div>
+            <div class="item-inner">
+              <div class="item-title">Logout</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main container -->
+    <div class="view view-main">
+
+      <!-- Page -->
+      <div class="page" data-name="sales-report">
+
+        <!-- fixed navbar -->
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a class="link back padding" href="#">
+                <i class="material-icons">keyboard_backspace</i>
+              </a>
+            </div>
+            <div class="title">Edit Account</div>
+          </div>
+        </div>
+
+        <!-- Page content -->
+        <div class="page-content">
+          <div class="block">
+            <div class="list media-list no-margin profile">
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><img class="user" src="assets/img/profile.png"></div>
+                <div class="icon">
+                  <i class="material-icons">photo_camera</i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <form>
+            <div class="block">
+              <div class="block block-strong inset no-margin">
+                <div class="list icon no-shadow no-margin">
+                  <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-user"></i>
+                            <input type="text" name="name" placeholder="Full Name">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-envelope"></i>
+                            <input type="email" name="email" placeholder="Email Address">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-mobile-phone"></i>
+                            <input type="text" name="phone" placeholder="Phone No.">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-building"></i>
+                            <input type="text" name="phone" placeholder="Company Name">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-map-marker"></i>
+                            <input type="text" name="phone" placeholder="Company Address">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="block-title margin-top">Change Password</div>
+                <div class="list icon no-shadow no-margin">
+                  <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-unlock"></i>
+                            <input type="password" name="name" placeholder="Old Password">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-unlock"></i>
+                            <input type="password" name="email" placeholder="New Password">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <i class="icon la la-unlock"></i>
+                            <input type="password" name="phone" placeholder="Confirm New Password">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input margin-top">
+                        <div class="item-inner">
+                          <div class="item-input-wrap">
+                            <button href="/dashboard/" class="col button-big button button-fill button-round">Save Changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="block">
+              
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+  </div>
+
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/js/framework7.min.js"></script>
+  <script src="assets/js/routes.js"></script>
+
+  <!-- Display when it needed -->
+  <script src="assets/js/Chart.bundle.min.js"></script>
+  <script src="assets/js/progressbar.min.js"></script>
+  <!-- End -->
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

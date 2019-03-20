@@ -1,0 +1,67 @@
+12:50 PM 2/14/2019
+ALTER TABLE `bank_deposits` CHANGE `amount` `amount` DECIMAL(65,3) NOT NULL;
+
+
+
+2:23 PM 2/8/2019
+ALTER TABLE `shift` CHANGE `shiftID` `shiftID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `dipstick_inventory` CHANGE `dipID` `dipID` INT(11) NOT NULL AUTO_INCREMENT;
+
+11:56 AM 2/7/2019
+
+ALTER TABLE `bank_accounts` CHANGE `bankAccountID` `bankAccountID` INT(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `banks` CHANGE `bankID` `bankID` INT(11) NOT NULL AUTO_INCREMENT;
+
+DROP TABLE IF EXISTS `customer_ledger`;
+CREATE TABLE IF NOT EXISTS `customer_ledger` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `productID` INT NOT NULL,
+  `begBal` float NOT NULL,
+  `increase` float NOT NULL,
+  `decrease` float NOT NULL,
+  `endBal` float NOT NULL,
+  `refNo` varchar(30) NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  `dateLastEdit` datetime NOT NULL,
+  `dateDeleted` datetime NOT NULL,
+  `deletedBy` varchar(36) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `supplier_ledger`;
+CREATE TABLE IF NOT EXISTS `supplier_ledger` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `productID` INT NOT NULL,
+  `begBal` float NOT NULL,
+  `increase` float NOT NULL,
+  `decrease` float NOT NULL,
+  `endBal` float NOT NULL,
+  `refNo` varchar(30) NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  `dateLastEdit` datetime NOT NULL,
+  `dateDeleted` datetime NOT NULL,
+  `deletedBy` varchar(36) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `catID` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(100) NOT NULL,
+  `description` varchar(150) NOT NULL,
+  `createdBy` varchar(36) NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  `dateLastEdit` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `dateDeleted` datetime NOT NULL,
+  `deletedBy` varchar(36) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`catID`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+

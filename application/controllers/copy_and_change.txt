@@ -1,0 +1,168 @@
+rrheaders
+drheaders
+
+rrdetails
+drdetails
+
+rrID
+drID
+
+rrNo
+drNo
+
+rrDate
+drDate
+
+suppID
+custID
+
+suppliers
+customers
+
+suppName
+companyName
+
+timeDelivered
+departure
+
+poID
+soID
+
+poNo
+soNo
+
+receiving_report
+delivery_report
+
+Receiving Report
+Delivery Report
+
+
+// account_payables
+
+apID
+invoiceNo (series) (apNo)
+invoiceDate (apDate)
+suppID
+totalAmount
+discount
+netAmount
+amountPaid
+balance
+paymentTerms
+dueDate
+
+poheaders
+apheaders
+
+podetails
+apdetails
+
+
+poID
+apID
+
+poNo
+invoiceNo
+
+poDate
+invoiceDate
+
+PO NO
+Invoice No
+
+
+
+
+
+
+
+
+
+
+
+
+//Account Payables
+Full texts	
+apID
+invoiceNo
+invoiceDate
+suppID
+totalAmount
+discount
+netAmount
+amountPaid
+balance
+paymentTerm
+datePaid
+dueDate
+createdBy
+dateCreated
+confirmedBy
+dateConfirmed
+cancelledBy
+dateCancelled
+dateInserted
+dateLastEdit
+dateDeleted
+deletedBy
+remarks
+status
+
+
+//Account Receivable
+arID	invoiceNo	invoiceDate	custID	totalAmount	discount	netAmount	amountPaid	balance	paymentTerms	dueDate	createdBy	confirmedBy	dateConfirmed	cancelledBy	dateCancelled	dateInserted	dateLastEdit	dateDeleted	deletedBy	remarks	status
+
+
+- edit paymentTerms = paymentTerm
+- add datePaid
+
+ardetails
+id	arID	soID	drID	amount	amountPaid	balance	dateInserted	dateLastEdit	dateDeleted	deletedBy	status
+productID
+qty
+delQty
+price
+
+
+apdetails
+id
+apID
+poID
+rrID
+productID
+Originally wala ni
+qty
+Originally wala ni
+delQty
+Originally wala ni
+amount
+price
+Originally wala ni
+amountPaid
+balance
+dateInserted
+dateLastEdit
+dateDeleted
+deletedBy
+status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

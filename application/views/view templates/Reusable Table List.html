@@ -1,0 +1,145 @@
+
+<div class="subheader">
+  <div class="d-flex align-items-center">
+    <div class="title mr-auto">
+      <h3><i class="icon left la la-gear"></i> User Groups</h3>
+    </div>
+    <div class="subheader-tools">
+      <a href="../user/add-configurations.html" class="btn btn-xs btn-primary btn-raised btn-md pill"><i class="icon left la la-plus lg"></i>Add New</a>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="card-box full-body">
+    <div class="card-head">
+      <div class="head-caption">
+        <div class="head-title">
+          <h4 class="head-text">Group</h4>
+        </div>
+      </div>
+      <div class="card-head-tools">
+        <ul class="tools-list">
+          <li>
+            <button id="btn-apply" class="btn btn-primary btn-xs pill collapse multi-collapse">Apply Filter</button>
+          </li>
+          <li>
+            <button id="btn-filter" class="btn btn-outline-light bmd-btn-icon" data-toggle="tooltip" data-placement="bottom" title="Filters"><i class="la la-sort-amount-asc"></i></button>
+          </li>
+          <li>
+            <button class="btn btn-outline-light bmd-btn-icon" data-toggle="tooltip" data-placement="bottom" title="Print"><i class="la la-print"></i></button>
+          </li>
+          <li>
+            <button class="btn btn-outline-light bmd-btn-icon" data-toggle="tooltip" data-placement="bottom" title="PDF File"><i class="la la-file-pdf-o"></i></button>
+          </li>
+          <li>
+            <button class="btn btn-outline-light bmd-btn-icon" data-toggle="tooltip" data-placement="bottom" title="Excel File"><i class="la la-file-excel-o"></i></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <!-- Table Wrapper Start Here -->
+      <div class="datatables_wrapper">
+        <!-- Table Innere Wrapper Start Here -->
+        <div class="table-responsive-xl">
+
+
+
+          <!-- Table Start Here -->
+          <table class="table table-striped hover">
+            <thead>
+              <tr>
+                <th class="w-25">Group</th>
+                <th class="w-40">Description</th>
+                <th class="w-35">Rank</th>
+                <th class="w-35">Status</th>
+              </tr>
+
+              <!-- Filter Options Start Here -->
+              <tr id="filter-group" class="collapse multi-collapse table-filter">
+                <th class="form-group form-input">
+                  <input type="text" class="form-control" id="">
+                </th>
+                <th class="form-group form-input">
+                  <input type="text" class="form-control" id="">
+                </th>
+                <th class="form-group form-input">
+                  <input type="text" class="form-control" id="">
+                </th>
+              </tr>
+              <!-- Filter Options End Here -->
+            </thead>
+            <tbody>
+
+              <!-- Row Start Here -->
+              <tr onclick="location.href='configurations-view.html'">
+                <td><span>Value</span></td>
+                <td><span>Value</span></td>
+                <td><span>Value</span></td>
+                <td><span>Value</span></td>
+              </tr>
+              <!-- Row End Here -->
+
+            </tbody>
+          </table>
+          <!-- Table End Here -->
+        </div>
+        <!-- Table Inner Wrapper End Here -->
+
+        <!-- Table Footer Start Here -->
+        <div class="datatable-footer d-flex">
+
+          <!-- Table Pagination Start Here -->
+          <div class="datatable-pagination">
+            <ul class="pagination">
+              <li class="page-item first disabled">
+                <a class="page-link" href="#" tabindex="-2"><i class="icon ti-angle-double-left"></i></a>
+              </li>
+              <li class="page-item prev disabled">
+                <a class="page-link" href="#" tabindex="-1"><i class="icon ti-angle-left"></i></a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item more"><span class="ellipsis">...</span></li>
+              <li class="page-item"><a class="page-link" href="#">8</a></li>
+              <li class="page-item next">
+                <a class="page-link" href="#"><i class="icon ti-angle-right"></i></a>
+              </li>
+              <li class="page-item last">
+                <a class="page-link" href="#"><i class="icon ti-angle-double-right"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!-- Table Pagination End Here -->
+
+
+          <!-- Table Footer Right Column Start Here -->
+          <div class="datatable-pager-info float-right ml-auto">
+            <div class="d-flex">
+              <div class="datatable-pager-size">
+                <div class="dataTables_length">
+                  <select name="table1_length" aria-controls="table1" class="form-control select-sm pill" tabindex="-98">
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+              </div>
+              <div class="datatable-pager-detail">
+                <div class="dataTables_info">Displaying 1 - 10 of 72 records</div>
+              </div>
+            </div>
+          </div>
+          <!-- Table Footer Right Column End Here -->
+        </div>
+        <!-- Table Footer End Here -->
+      </div>
+      <!-- Table Wrapper End Here -->
+    </div>
+  </div>
+</div>

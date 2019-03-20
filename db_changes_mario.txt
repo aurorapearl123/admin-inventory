@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS `pumps`;
+CREATE TABLE IF NOT EXISTS `pumps` (
+  `pumpID` int(11) NOT NULL AUTO_INCREMENT,
+  `pumpCode` varchar(10) NOT NULL,
+  `pumpName` varchar(25) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`pumpID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

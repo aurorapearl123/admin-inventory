@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#2196f3" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <title>Kitrol Sales Report</title>
+    <link rel="stylesheet" href="assets/css/framework7.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="assets/icon/icons.css" />
+    <link rel="stylesheet" href="assets/font/fonts.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Status bar overlay for fullscreen mode-->
+      <div class="statusbar"></div>
+
+      <!-- Left Navigation -->
+      <div class="panel panel-left panel-reveal">
+        <div class="block menu-header">
+          <div class="list media-list">
+            <div class="item-content">
+              <!-- <div class="item-media"><i class="user f7-icons size-50">person</i></div> -->
+              <div class="item-media">
+                <img class="user" src="assets/img/profile.png" />
+              </div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Kitrol Holdings</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block menu-content">
+          <div class="list margin-top">
+            <ul>
+              <li>
+                <a
+                  href="/dashboard/"
+                  class="item-link item-content panel-close"
+                >
+                  <div class="item-media">
+                    <i class="icon material-icons">dashboard</i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">Dashboard</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/sales-report/"
+                  class="item-link item-content panel-close"
+                >
+                  <div class="item-media">
+                    <i class="icon material-icons">insert_chart</i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">Sales Report</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/inventory/"
+                  class="item-link item-content panel-close"
+                >
+                  <div class="item-media">
+                    <i class="icon material-icons">pie_chart</i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">Inventory</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="/deposit/" class="item-link item-content panel-close">
+                  <div class="item-media">
+                    <i class="icon material-icons">account_balance</i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">Deposit</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/settings/"
+                  class="item-link item-content panel-close active-state"
+                >
+                  <div class="item-media">
+                    <i class="icon material-icons">settings</i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">Settings</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="block menu-footer">
+          <div class="list">
+            <a href="/" class="item-link item-content panel-close">
+              <div class="item-media">
+                <i class="icon material-icons">power_settings_new</i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Logout</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main container -->
+      <div class="view view-main">
+        <!-- Page -->
+        <div class="page" data-name="login-page">
+          <!-- Page content -->
+          <div
+            class="page-content login-screen-content"
+            style="background: url(assets/img/login-bg.jpg) center; background-repeat: no-repeat;background-size: cover;"
+          >
+            <div
+              class="h-100 display-flex align-items-center justify-content-center"
+            >
+              <div class="block no-margin">
+                <div class="row">
+                  <div class="col text-align-center">
+                    <div class="logo">
+                      <img
+                        src="assets/img/logo.png"
+                        width="60%"
+                        class="lazy lazy-fade-in"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-30">
+                  <div class="col">
+                    <!-- Login form -->
+
+                    <form>
+                      <div class="list icon">
+                        <div class="item-content item-input">
+                          <div class="item-inner"></div>
+                        </div>
+                        <div class="item-content item-input margin-top-5">
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                              <i class="icon la la-unlock"></i>
+                              <input
+                                type="password"
+                                name="pin"
+                                placeholder="PIN"
+                                id="pin"
+                                value="5365"
+                              />
+                              <span class="input-clear-button"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-content item-input margin-top-5">
+                          <div class="item-inner">
+                            <a
+                              id="login-button"
+                              href="#"
+                              class="col button-big button button-fill button-round button-raised"
+                              >Sign In</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/framework7.min.js"></script>
+    <script src="assets/js/routes.js"></script>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
